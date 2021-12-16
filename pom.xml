@@ -1,7 +1,97 @@
-    <project>
-      <modelVersion>4.0.0</modelVersion>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
       <groupId>io.microlam</groupId>
       <artifactId>microlam-assembly-descriptor</artifactId>
       <version>1.0</version>
-      <name>Shared Assembly Descriptor</name>
-    </project>
+      <name>Shared Assembly Descriptor for AWS Lambda</name>
+      <description>Shared Assembly Descriptor for AWS Lambda</description>
+    <url>https://microlam.io</url>
+
+  <organization>
+    <name>MicroLam.io</name>
+    <url>https://microlam.io</url>
+  </organization>
+
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>http://www.opensource.org/licenses/mit-license.php</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  	<developers>
+	    <developer>
+	      <name>Frank Afriat</name>
+	      <email>frank.afriat@microlam.io</email>
+	      <organization>MicroLam.io</organization>
+	      <organizationUrl>https://microlam.io</organizationUrl>
+	    </developer>
+	 </developers>
+
+	<scm>
+	  <connection>scm:git:git://github.com/microlam-io/slf4j-simple-lambda.git</connection>
+	  <developerConnection>scm:git:ssh://github.com:microlam-io/slf4j-simple-lambda.git</developerConnection>
+	  <url>https://github.com/microlam-io/slf4j-simple-lambda/tree/master</url>
+	</scm>
+
+	<distributionManagement>
+	  <snapshotRepository>
+	    <id>ossrh</id>
+	    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+	  </snapshotRepository>
+	  <repository>
+    	<id>ossrh</id>
+    	<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+  	  </repository>
+	</distributionManagement>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <gpg.keyname>8011431D42D5A9ACBEF8B2A6D153D68FA8DF084C</gpg.keyname>
+  </properties>
+
+<build>
+	<plugins>
+      <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-gpg-plugin</artifactId>
+      <version>1.6</version>
+      <executions>
+        <execution>
+          <id>sign-artifacts</id>
+          <phase>verify</phase>
+          <goals>
+            <goal>sign</goal>
+          </goals>
+          <configuration>
+              <keyname>${gpg.keyname}</keyname>
+              <executable>/usr/local/bin/gpg</executable>
+          </configuration>    
+        </execution>
+      </executions>
+    </plugin>
+      
+     	<plugin>
+	      <groupId>org.sonatype.plugins</groupId>
+	      <artifactId>nexus-staging-maven-plugin</artifactId>
+	      <version>1.6.7</version>
+	      <extensions>true</extensions>
+	      <configuration>
+	        <serverId>ossrh</serverId>
+	        <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+	        <autoReleaseAfterClose>true</autoReleaseAfterClose>
+	      </configuration>
+    	</plugin>
+    	
+	</plugins>
+	
+</build>
+
+</project>
