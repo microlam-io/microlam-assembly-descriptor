@@ -77,16 +77,38 @@
       <plugin>
       	<groupId>org.apache.maven.plugins</groupId>
       	<artifactId>maven-javadoc-plugin</artifactId>
-      	<version>3.2.0</version>
+      	<version>3.3.1</version>
       	<executions>
       		<execution>
       			<id>attach-javadocs</id>
       			<goals>
       				<goal>jar</goal>
       			</goals>
+            <configuration>
+              <debug>true</debug>
+            </configuration>
       		</execution>
       	</executions>
       </plugin>
+
+      <!-- We must generate a -javadoc JAR file to publish on Maven Central -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <executions>
+            <execution>
+                <id>empty-javadoc-jar</id>
+                <phase>package</phase>
+                <goals>
+                    <goal>jar</goal>
+                </goals>
+                <configuration>
+                    <classifier>javadoc</classifier>
+                    <classesDirectory>${basedir}/javadoc</classesDirectory>
+                </configuration>
+            </execution>
+        </executions>
+    </plugin>
 
       <plugin>
       <groupId>org.apache.maven.plugins</groupId>
