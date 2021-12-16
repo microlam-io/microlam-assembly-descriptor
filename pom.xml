@@ -1,0 +1,7 @@
+    <project>
+      <modelVersion>4.0.0</modelVersion>
+      <groupId>io.microlam</groupId>
+      <artifactId>microlam-assembly-descriptor</artifactId>
+      <version>1.0</version>
+      <name>Shared Assembly Descriptor</name>
+    </project>
