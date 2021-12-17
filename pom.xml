@@ -6,7 +6,7 @@
 
       <groupId>io.microlam</groupId>
       <artifactId>microlam-assembly-descriptor</artifactId>
-      <version>1.0</version>
+      <version>1.1</version>
       <name>Shared Assembly Descriptor for AWS Lambda</name>
       <description>Shared Assembly Descriptor for AWS Lambda</description>
     <url>https://microlam.io</url>
@@ -34,19 +34,19 @@
 	 </developers>
 
 	<scm>
-	  <connection>scm:git:git://github.com/microlam-io/slf4j-simple-lambda.git</connection>
-	  <developerConnection>scm:git:ssh://github.com:microlam-io/slf4j-simple-lambda.git</developerConnection>
-	  <url>https://github.com/microlam-io/slf4j-simple-lambda/tree/master</url>
+	  <connection>scm:git:git://github.com/microlam-io/microlam-assembly-descriptor.git</connection>
+	  <developerConnection>scm:git:ssh://github.com:microlam-io/microlam-assembly-descriptor.git</developerConnection>
+	  <url>https://github.com/microlam-io/microlam-assembly-descriptor/tree/master</url>
 	</scm>
 
 	<distributionManagement>
 	  <snapshotRepository>
 	    <id>ossrh</id>
-	    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+	    <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
 	  </snapshotRepository>
 	  <repository>
     	<id>ossrh</id>
-    	<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    	<url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
   	  </repository>
 	</distributionManagement>
 
@@ -95,6 +95,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
+         <version>3.2.0</version>
         <executions>
             <execution>
                 <id>empty-javadoc-jar</id>
@@ -136,9 +137,16 @@
 	      <extensions>true</extensions>
 	      <configuration>
 	        <serverId>ossrh</serverId>
-	        <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+	        <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
 	        <autoReleaseAfterClose>true</autoReleaseAfterClose>
 	      </configuration>
+        <dependencies>
+        <dependency>
+          <groupId>com.thoughtworks.xstream</groupId>
+          <artifactId>xstream</artifactId>
+          <version>1.4.15</version> <!-- apparently this needs to be exactly this version -->
+        </dependency>
+      </dependencies>
     	</plugin>
     	
 	</plugins>
