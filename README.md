@@ -22,7 +22,7 @@ Add this plugin to your pom.xml
     
     <executions>
         <execution>
-            <id>lambda_deployment_package_execution</id>
+            <id>aws_lambda_deployment_package</id>
             <phase>package</phase>
             <goals>
                 <goal>single</goal>
