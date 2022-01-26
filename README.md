@@ -1,4 +1,7 @@
 # microlam-assembly-descriptor
+
+![Maven Central](https://img.shields.io/maven-central/v/io.microlam/microlam-assembly-descriptor)
+
 Shared Assembly Descriptor for AWS Lambda
 
 Add this plugin to your pom.xml
