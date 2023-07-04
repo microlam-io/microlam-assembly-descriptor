@@ -13,7 +13,7 @@ Add this plugin to your pom.xml
     <dependency>
       <groupId>io.microlam</groupId>
       <artifactId>microlam-assembly-descriptor</artifactId>
-      <version>1.4</version>
+      <version>1.4.1</version>
     </dependency>
   </dependencies>
 
