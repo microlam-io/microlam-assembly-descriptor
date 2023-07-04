@@ -12,6 +12,12 @@
             <includes>
 				<include>${project.groupId}:${project.artifactId}</include>
 			</includes>
+			<unpackOptions>
+                <excludes>
+                    <exclude>META-INF/MANIFEST.MF</exclude>
+                    <exclude>META-INF/maven/**</exclude>
+                </excludes>
+            </unpackOptions>
 			<unpack>true</unpack>
         </dependencySet>
     
